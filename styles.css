@@ -12,7 +12,9 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url(images/0.jpg);
-  backdrop-filter: blur(5px)
+  backdrop-filter: blur(5px);
+  background-repeat: no-repeat;
+  background-size: cover
   /*background-color: #333*/
 }
 

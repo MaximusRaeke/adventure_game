@@ -1,12 +1,14 @@
 const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 
+
 let state = {}
 
 function startGame() {
-  var heroName = prompt("Please enter your name", "");
+  //var heroName = prompt("Please enter your name", "");
   state = {}
   showTextNode(0)
+  document.body.style.backgroundImage = "url(images/0.jpg"
 }
 
 function showTextNode(textNodeIndex) {
@@ -22,6 +24,7 @@ function showTextNode(textNodeIndex) {
       button.innerText = option.text
       button.classList.add('btn')
       button.addEventListener('click', () => selectOption(option))
+      button.addEventListener('click', () => changeBackground(textNode.id))
       optionButtonsElement.appendChild(button)
     }
   })
@@ -40,10 +43,16 @@ function selectOption(option) {
   showTextNode(nextTextNodeId)
 }
 
+function changeBackground(textNodeIndex) {
+  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
+  document.body.style.backgroundImage = "url(images/" + textNode.id + ".jpg)";
+}
+
 const textNodes = [
   {
     id: 0,
     text: 'Welcome to Brandon\'s Adventure Game! Be on your guard as treachery and danger lie ahead for you Adventurer!',
+    background: document.body.style.backgroundImage = "url(images/0.jpg",
     options: [
       {
         text: 'Venture Forth',
